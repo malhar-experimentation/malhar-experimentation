@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rotary Club of Central Gardens — Mockup</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #FAFAF7; font-family: 'DM Sans', sans-serif; color: #1a1a1a; }
+
+    .rcc-root { max-width: 960px; margin: 0 auto; }
+
+    /* NAV */
+    .rcc-nav {
+      background: #0A2E6E;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .rcc-nav-logo { display: flex; align-items: center; gap: 10px; }
+    .rcc-wheel { width: 32px; height: 32px; }
+    .rcc-nav-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 15px;
+      color: #F5C842;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+    }
+    .rcc-nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .rcc-nav-links li a {
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      font-size: 12.5px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+    }
+    .rcc-nav-links li a:hover { color: #F5C842; }
+    .rcc-nav-cta {
+      background: #F5C842;
+      color: #0A2E6E;
+      border: none;
+      padding: 7px 16px;
+      font-size: 12px;
+      font-weight: 500;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      border-radius: 2px;
+    }
+
+    /* HERO */
+    .rcc-hero {
+      background: linear-gradient(160deg, #0A2E6E 0%, #0d3b8a 55%, #0A2E6E 100%);
+      padding: 4rem 2.5rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .rcc-hero-bg { position: absolute; right: -20px; top: -20px; opacity: 0.06; }
+    .rcc-hero-badge {
+      display: inline-block;
+      background: rgba(245,200,66,0.15);
+      border: 1px solid rgba(245,200,66,0.4);
+      color: #F5C842;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      padding: 4px 12px;
+      border-radius: 2px;
+      margin-bottom: 1.2rem;
+      font-weight: 500;
+    }
+    .rcc-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 600;
+      color: #fff;
+      margin: 0 0 0.4rem;
+      line-height: 1.15;
+    }
+    .rcc-hero h1 span { color: #F5C842; }
+    .rcc-hero-sub {
+      color: rgba(255,255,255,0.65);
+      font-size: 14px;
+      margin: 0.5rem 0 1.8rem;
+      max-width: 400px;
+      line-height: 1.7;
+    }
+    .rcc-hero-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+    .rcc-btn-primary {
+      background: #F5C842;
+      color: #0A2E6E;
+      border: none;
+      padding: 10px 22px;
+      font-size: 13px;
+      font-weight: 500;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+    }
+    .rcc-btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.35);
+      padding: 10px 22px;
+      font-size: 13px;
+      font-weight: 400;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+    }
+    .rcc-hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 1.5rem;
+    }
+    .rcc-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: #F5C842;
+      display: block;
+    }
+    .rcc-stat-lbl {
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.08em;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* SECTION COMMON */
+    .rcc-section { padding: 2.5rem 2.5rem; }
+    .rcc-section-label {
+      font-size: 10.5px;
+      letter-spacing: 0.14em;
+      color: #0A2E6E;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+    .rcc-section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: #0A2E6E;
+      margin: 0 0 0.3rem;
+    }
+    .rcc-section-line {
+      width: 36px; height: 2px;
+      background: #F5C842;
+      margin: 0.6rem 0 1.6rem;
+      border-radius: 1px;
+    }
+
+    /* ANNIVERSARY BANNER */
+    .rcc-anniversary {
+      background: #F5C842;
+      padding: 1rem 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .rcc-ann-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: #0A2E6E;
+      letter-spacing: 0.02em;
+    }
+    .rcc-ann-sub {
+      font-size: 12px;
+      color: #0A2E6E;
+      opacity: 0.7;
+      margin-left: auto;
+    }
+
+    /* PROJECTS */
+    .rcc-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .rcc-project-card {
+      background: #fff;
+      border: 1px solid #e8e4d8;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .rcc-project-card:hover { border-color: #F5C842; transform: translateY(-2px); }
+    .rcc-project-thumb {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .rcc-project-body { padding: 10px 12px 12px; }
+    .rcc-project-tag {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: #0A2E6E;
+      opacity: 0.6;
+      font-weight: 500;
+      margin-bottom: 3px;
+      display: block;
+    }
+    .rcc-project-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #0A2E6E;
+      line-height: 1.3;
+      margin: 0 0 4px;
+    }
+    .rcc-project-desc {
+      font-size: 11.5px;
+      color: #666;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* MEMBERS */
+    .rcc-members-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .rcc-member-card {
+      background: #fff;
+      border: 1px solid #e8e4d8;
+      border-radius: 4px;
+      padding: 14px 12px;
+      text-align: center;
+    }
+    .rcc-member-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0 auto 8px;
+      color: #0A2E6E;
+      background: #EBF0F8;
+      border: 2px solid #F5C842;
+    }
+    .rcc-member-name { font-weight: 500; font-size: 12.5px; color: #0A2E6E; margin: 0 0 2px; }
+    .rcc-member-role { font-size: 10.5px; color: #888; margin: 0; }
+
+    /* CONTRIBUTE */
+    .rcc-contribute {
+      background: #0A2E6E;
+      padding: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .rcc-contribute-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: #fff;
+      margin: 0 0 0.3rem;
+    }
+    .rcc-contribute-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      margin: 0;
+      max-width: 320px;
+      line-height: 1.6;
+    }
+    .rcc-contribute-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    /* FOOTER */
+    .rcc-footer {
+      background: #071E4A;
+      padding: 1.8rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .rcc-footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: rgba(255,255,255,0.5); }
+    .rcc-footer-links { display: flex; gap: 1.2rem; }
+    .rcc-footer-links a { font-size: 12px; color: rgba(255,255,255,0.4); text-decoration: none; }
+    .rcc-footer-contact { font-size: 11.5px; color: rgba(255,255,255,0.4); text-align: right; }
+    .rcc-divider { height: 1px; background: #e8e4d8; }
+
+    .view-all-btn {
+      background: none;
+      border: 1px solid #0A2E6E;
+      color: #0A2E6E;
+      padding: 8px 20px;
+      font-size: 12px;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+<div class="rcc-root">
+
+  <!-- NAV -->
+  <nav class="rcc-nav">
+    <div class="rcc-nav-logo">
+      <svg class="rcc-wheel" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="16" r="14" stroke="#F5C842" stroke-width="1.5"/>
+        <circle cx="16" cy="16" r="5" stroke="#F5C842" stroke-width="1.5"/>
+        <line x1="16" y1="2" x2="16" y2="11" stroke="#F5C842" stroke-width="1.5"/>
+        <line x1="16" y1="21" x2="16" y2="30" stroke="#F5C842" stroke-width="1.5"/>
+        <line x1="2" y1="16" x2="11" y2="16" stroke="#F5C842" stroke-width="1.5"/>
+        <line x1="21" y1="16" x2="30" y2="16" stroke="#F5C842" stroke-width="1.5"/>
+        <line x1="5.37" y1="5.37" x2="11.64" y2="11.64" stroke="#F5C842" stroke-width="1.5"/>
+        <line x1="20.36" y1="20.36" x2="26.63" y2="26.63" stroke="#F5C842" stroke-width="1.5"/>
+        <line x1="26.63" y1="5.37" x2="20.36" y2="11.64" stroke="#F5C842" stroke-width="1.5"/>
+        <line x1="11.64" y1="20.36" x2="5.37" y2="26.63" stroke="#F5C842" stroke-width="1.5"/>
+      </svg>
+      <div class="rcc-nav-name">Rotary Club of<br>Central Gardens · Calcutta</div>
+    </div>
+    <ul class="rcc-nav-links">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Members</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <button class="rcc-nav-cta">Contribute</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="rcc-hero">
+    <svg class="rcc-hero-bg" width="260" height="260" viewBox="0 0 260 260">
+      <circle cx="130" cy="130" r="120" stroke="white" stroke-width="1.5" fill="none"/>
+      <circle cx="130" cy="130" r="48" stroke="white" stroke-width="1.5" fill="none"/>
+      <line x1="130" y1="10" x2="130" y2="82" stroke="white" stroke-width="1.5"/>
+      <line x1="130" y1="178" x2="130" y2="250" stroke="white" stroke-width="1.5"/>
+      <line x1="10" y1="130" x2="82" y2="130" stroke="white" stroke-width="1.5"/>
+      <line x1="178" y1="130" x2="250" y2="130" stroke="white" stroke-width="1.5"/>
+      <line x1="45" y1="45" x2="96" y2="96" stroke="white" stroke-width="1.5"/>
+      <line x1="164" y1="164" x2="215" y2="215" stroke="white" stroke-width="1.5"/>
+      <line x1="215" y1="45" x2="164" y2="96" stroke="white" stroke-width="1.5"/>
+      <line x1="96" y1="164" x2="45" y2="215" stroke="white" stroke-width="1.5"/>
+    </svg>
+    <span class="rcc-hero-badge">CELEBRATING 25 YEARS · 2000–2025</span>
+    <h1>Service Above<br><span>Self.</span></h1>
+    <p class="rcc-hero-sub">Rotary Club of Central Gardens, Calcutta — two and a half decades of transforming lives in West Bengal and beyond.</p>
+    <div class="rcc-hero-btns">
+      <button class="rcc-btn-primary">Our Projects</button>
+      <button class="rcc-btn-outline">Join the Club</button>
+    </div>
+    <div class="rcc-hero-stats">
+      <div>
+        <span class="rcc-stat-num">25</span>
+        <span class="rcc-stat-lbl">YEARS OF SERVICE</span>
+      </div>
+      <div>
+        <span class="rcc-stat-num">12+</span>
+        <span class="rcc-stat-lbl">ACTIVE PROJECTS</span>
+      </div>
+      <div>
+        <span class="rcc-stat-num">4,000+</span>
+        <span class="rcc-stat-lbl">LIVES IMPACTED</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANNIVERSARY BANNER -->
+  <div class="rcc-anniversary">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+      <polygon points="11,2 13.5,8.5 20.5,8.5 15,12.5 17,19 11,15 5,19 7,12.5 1.5,8.5 8.5,8.5" fill="#0A2E6E" opacity="0.7"/>
+    </svg>
+    <span class="rcc-ann-text">Silver Jubilee — 25 Years of Service Above Self</span>
+    <span class="rcc-ann-sub">Founded 2000 · Central Gardens, Calcutta</span>
+  </div>
+
+  <!-- PROJECTS -->
+  <section class="rcc-section">
+    <span class="rcc-section-label">WHAT WE DO</span>
+    <h2 class="rcc-section-title">Project Highlights</h2>
+    <div class="rcc-section-line"></div>
+    <div class="rcc-projects-grid">
+
+      <div class="rcc-project-card">
+        <div class="rcc-project-thumb" style="background:#EBF0F8;">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="12" r="6" stroke="#0A2E6E" stroke-width="1.5"/>
+            <path d="M6 30c0-6 5.4-10 12-10s12 4 12 10" stroke="#0A2E6E" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M26 16c2 0 4 1.5 4 4" stroke="#F5C842" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="rcc-project-body">
+          <span class="rcc-project-tag">CHILD WELFARE</span>
+          <p class="rcc-project-name">Education for Underprivileged Children</p>
+          <p class="rcc-project-desc">Scholarships, school supplies, and mentorship for children in need across Kolkata.</p>
+        </div>
+      </div>
+
+      <div class="rcc-project-card">
+        <div class="rcc-project-thumb" style="background:#FDF8EC;">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <rect x="8" y="14" width="20" height="16" rx="2" stroke="#0A2E6E" stroke-width="1.5"/>
+            <path d="M12 14V10a6 6 0 0 1 12 0v4" stroke="#0A2E6E" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="18" y1="19" x2="18" y2="25" stroke="#F5C842" stroke-width="2" stroke-linecap="round"/>
+            <line x1="15" y1="22" x2="21" y2="22" stroke="#F5C842" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="rcc-project-body">
+          <span class="rcc-project-tag">ELDER CARE</span>
+          <p class="rcc-project-name">Old Age Homes & Senior Support</p>
+          <p class="rcc-project-desc">Founded and supported homes offering dignity, care, and community to the elderly.</p>
+        </div>
+      </div>
+
+      <div class="rcc-project-card">
+        <div class="rcc-project-thumb" style="background:#ECF5EF;">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <path d="M18 6 L22 14 L30 14 L24 20 L26 28 L18 23 L10 28 L12 20 L6 14 L14 14 Z" stroke="#0A2E6E" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+            <circle cx="18" cy="18" r="3" fill="#F5C842"/>
+          </svg>
+        </div>
+        <div class="rcc-project-body">
+          <span class="rcc-project-tag">HEALTHCARE</span>
+          <p class="rcc-project-name">Thalassemia Treatment in Rural Areas</p>
+          <p class="rcc-project-desc">Screening, treatment support, and awareness drives reaching rural communities.</p>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:1.4rem;">
+      <button class="view-all-btn">View All Projects →</button>
+    </div>
+  </section>
+
+  <div class="rcc-divider"></div>
+
+  <!-- MEMBERS -->
+  <section class="rcc-section">
+    <span class="rcc-section-label">OUR PEOPLE</span>
+    <h2 class="rcc-section-title">Meet the Members</h2>
+    <div class="rcc-section-line"></div>
+    <div class="rcc-members-grid">
+      <div class="rcc-member-card">
+        <div class="rcc-member-avatar">RG</div>
+        <p class="rcc-member-name">Rtn. R. Ghosh</p>
+        <p class="rcc-member-role">President</p>
+      </div>
+      <div class="rcc-member-card">
+        <div class="rcc-member-avatar">SM</div>
+        <p class="rcc-member-name">Rtn. S. Mukherjee</p>
+        <p class="rcc-member-role">Secretary</p>
+      </div>
+      <div class="rcc-member-card">
+        <div class="rcc-member-avatar">AB</div>
+        <p class="rcc-member-name">Rtn. A. Bose</p>
+        <p class="rcc-member-role">Treasurer</p>
+      </div>
+      <div class="rcc-member-card">
+        <div class="rcc-member-avatar">PD</div>
+        <p class="rcc-member-name">Rtn. P. Das</p>
+        <p class="rcc-member-role">Project Chair</p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:1.4rem;">
+      <button class="view-all-btn">View All Members →</button>
+    </div>
+  </section>
+
+  <div class="rcc-divider"></div>
+
+  <!-- CONTRIBUTE CTA -->
+  <div class="rcc-contribute">
+    <div>
+      <p class="rcc-contribute-title">Make a Difference Today</p>
+      <p class="rcc-contribute-sub">Your contribution directly funds education, healthcare, and elder care programs across West Bengal.</p>
+    </div>
+    <div class="rcc-contribute-actions">
+      <button class="rcc-btn-primary">Contribute Now</button>
+      <button class="rcc-btn-outline">Learn More</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="rcc-footer">
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif; font-size:14px; font-weight:600; color:#F5C842; margin-bottom:3px;">Rotary Club of Central Gardens</div>
+      <div class="rcc-footer-brand">Calcutta · Rotary International District 3291</div>
+    </div>
+    <div class="rcc-footer-links">
+      <a href="#">Projects</a>
+      <a href="#">Members</a>
+      <a href="#">Gallery</a>
+      <a href="#">Privacy</a>
+    </div>
+    <div class="rcc-footer-contact">
+      centralgardens@rotary.org<br>
+      +91 33 XXXX XXXX
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
